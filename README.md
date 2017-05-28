@@ -1,9 +1,14 @@
 # UnitySingletonExample - A Singleton Pattern without static fields
 
-* A Singleton that uses Unitys internal concepts instead of using static fields
-* Easy to reset (just destroy its GameObject)
+The core idea is to use GameObjects to represent singletons which has multiple advantages:
+
+* No need to use static fields
+* No need to modify existing MonoBehaviours / Components to use them as Singletons
+* Easy to reset (just destroy the Singletons GameObject)
 * Easy to inject mocks (just initialize it with the mock before using it)
-* Inspection and configuration using normal Unity editor ( https://i.imgur.com/wKvdrg7.png )
+* Inspection and configuration using normal Unity editor and can happen already on editor time
+
+![A singleton generated on runtime](https://i.imgur.com/wKvdrg7.png)
 
 Test.cs:
 
