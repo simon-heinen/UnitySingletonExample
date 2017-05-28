@@ -1,5 +1,7 @@
 # UnitySingletonExample - A Singleton Pattern without static fields
 
+[Go to https://stackoverflow.com/documentation/unity3d/2137/singletons-in-unity/30885/singleton-pattern-without-static-fields#t=201705281620064376864 for open discussion and questions]
+
 The core idea is to use GameObjects to represent singletons which has multiple advantages:
 
 * No need to use static fields
@@ -10,7 +12,7 @@ The core idea is to use GameObjects to represent singletons which has multiple a
 
 ![A singleton generated on runtime](https://i.imgur.com/wKvdrg7.png)
 
-Test.cs:
+Test.cs (which uses the example singleton):
 
     public class Test : MonoBehaviour {
         void Start() {
@@ -24,7 +26,7 @@ Test.cs:
         }
     }
 
-ExampleSingleton.cs
+ExampleSingleton.cs (which contains an example and the actual Singleton class):
 
     public class ExampleSingleton : MonoBehaviour {
         public static ExampleSingleton instance { get { return Singleton.get<ExampleSingleton>(); } }
@@ -59,3 +61,5 @@ ExampleSingleton.cs
             return comp;
         }
     }
+
+The two extension methods for GameObject are helpful in other situations as well, if you don't need them move them inside the Singleton class and make them private.
