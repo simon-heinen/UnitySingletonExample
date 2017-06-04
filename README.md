@@ -1,12 +1,15 @@
-# UnitySingletonExample - A Singleton Pattern without static fields
+# UnitySingletonExample - A Singleton Pattern utilizing Unitys Entity-Component system
 
 [Go to https://stackoverflow.com/documentation/unity3d/2137/singletons-in-unity/30885/singleton-pattern-without-static-fields#t=201705281620064376864 for open discussion and questions]
 
 The core idea is to use GameObjects to represent singletons which has multiple advantages:
 
-* No need to use static fields
+* Keeps complexity to a minimum but supports concepts like dependency injection
+* Singletons have a normal Unity lifecycle as part of the Entity-Component system
+* Singletons can be lazy loaded and cached locally where regulary needed (e.g. in update loops)
+* No static fields needed
 * No need to modify existing MonoBehaviours / Components to use them as Singletons
-* Easy to reset (just destroy the Singletons GameObject)
+* Easy to reset (just destroy the Singletons GameObject), will be lazy loaded again on next usage
 * Easy to inject mocks (just initialize it with the mock before using it)
 * Inspection and configuration using normal Unity editor and can happen already on editor time
 
